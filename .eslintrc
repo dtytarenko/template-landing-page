@@ -1,0 +1,17 @@
+{
+    "env": {
+      "browser": true,
+      "node": true,
+      "es6": true
+    },
+    "parserOptions": {
+      "sourceType": "module"
+    },
+    "extends": "eslint:recommended",
+    "parser": "babel-eslint",
+    "rules": {
+      "quotes": ["error", "double"],
+      "semi": ["error", "always"],
+      "no-console": "off"
+    }
+  }
