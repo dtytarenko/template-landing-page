@@ -1,0 +1,42 @@
+.footer{
+    background-color: $themeBlack;
+
+    .container{
+        padding-top: 10px;
+        padding-bottom: 10px;
+
+        @include tablet{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+    }
+
+    &__copyright{
+        font-size: 14px;
+        line-height: 17px;
+        color: $white;
+        text-align: center;
+
+        @include tablet{
+            font-size: 22px;
+            line-height: 26px;
+        }
+
+        span{
+            font-size: 17px;
+            display: inline-block;
+            margin-right: 14px;
+
+            @include tablet{
+                font-size: 22px;
+                line-height: 26px;
+            }
+
+            b{
+                color: $themeBlue;
+                font-weight: normal;
+            }
+        }
+    }
+}

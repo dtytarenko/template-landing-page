@@ -1,0 +1,307 @@
+@import "./mixins";
+@import "./env";
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  width: 100%;
+  position: relative;
+  overflow-x: hidden;
+}
+
+body {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  font-family: $sfRegular;
+}
+
+h1 {
+  opacity: 0;
+  font-size: 0px;
+}
+
+img {
+  width: 100%;
+}
+
+.overlay,
+.popUp {
+  opacity: 0;
+  position: absolute;
+  left: 0;
+  top: 0;
+  transform: translateX(-200%);
+}
+
+.overlay{
+  z-index: 97;
+
+  &.active{
+    width: 100%;
+    height: 100%;
+    background: rgba(14, 14, 14, 0.6);
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.popUp{
+  z-index: 100;
+  background-color: $white;
+  padding: 50px 30px;
+  width: calc(100% - 20px);
+  max-width: 460px;
+  top: 50%;
+  left: 50%;
+  @include transition;
+
+  &__close{
+    display: block;
+    @include bgIcons;
+    width: 18px;
+    height: 18px;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background-image: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjIiIGhlaWdodD0iMjIiIHZpZXdCb3g9IjAgMCAyMiAyMiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTIgMkwyMCAyME0yMCAyTDIgMjAiIHN0cm9rZT0iIzZCNkI2QiIgc3Ryb2tlLXdpZHRoPSIzIiBzdHJva2UtbGluZWNhcD0icm91bmQiLz4KPC9zdmc+Cg==");
+  }
+
+  &.active{
+    transform: translate(-50%, -50%);
+    position: fixed;
+    opacity: 1;
+  } 
+
+  &__title{
+    font-family: $sfBold;
+    font-size: 26px;
+    line-height: 31px;
+    color: $black;
+    margin-bottom: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+
+    @include laptop{
+      font-size: 30px;
+      line-height: 36px;
+    }
+
+    span{
+      color: $themeBlue;
+    }
+  }
+
+  &__text{
+    color: $gray;
+    font-size: 14px;
+    line-height: 24px;
+    text-align: center;
+    margin-bottom: 20px;
+    
+    @include laptop{
+      font-size: 22px;
+      line-height: 26px;
+    }
+  }
+}
+
+.container {
+  width: calc(100% - 40px);
+  margin: 0 auto;
+
+  @include laptop{
+    max-width: 1170px;
+    width: 100%;
+  }
+
+  &.contentContainer {
+    padding-top: 50px;
+    padding-bottom: 50px;
+
+    @include tablet{
+      padding-top: 100px;
+      padding-bottom: 100px;
+    }
+  }
+
+}
+
+.section__title {
+  text-align: center;
+  font-family: sfRegular, sans-serif;
+  font-size: 26px;
+  line-height: 31px;
+  margin-bottom: 20px;
+  color: $semiBlack;
+
+  @include tablet{
+    font-size: 30px;
+    line-height: 36px;
+    margin-bottom: 50px;
+  }
+
+  &.black {
+    color: $semiBlack;
+  }
+
+  &.white {
+    color: $white;
+  }
+}
+
+.logo__link{
+  -webkit-tap-highlight-color: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  svg{
+      width: 101px;
+      height: 50px;
+
+      @include tablet{
+          width: 148px;
+      }
+
+      @include laptop{
+        position: relative;
+        bottom: 3px;
+      }
+  }
+}
+// sticky header
+.main {
+  padding-top: 70px;
+}
+
+.scroll-up .header {
+  transform: translate3d(0, 0%, 0);
+  position: fixed;
+}
+
+.scroll-down .header {
+  transform: translate3d(0, -100%, 0);
+}
+
+.scroll-down .header.sticky.active{
+  transform: translate3d(0, 0%, 0);
+}
+
+.defaultForm {
+  display: flex;
+  flex-direction: column;
+
+  &__input {
+    width: 100%;
+    max-width: 430px;
+    min-height: 50px;
+    max-height: 50px;
+    background-color: $white;
+    border: 1px solid $themeBlue;
+    font-size: 18px;
+    line-height: 21px;
+    color: $gray;
+    font-family: $sfRegular;
+    padding: 20px;
+    border-radius: 3px;
+
+    @include tablet{
+      min-height: 70px;
+      min-height: 70px;
+    }
+
+    &:not(:last-of-type) {
+      margin-bottom: 20px;
+    }
+
+    &:last-of-type {
+      margin-bottom: 30px;
+    }
+
+    @include placeholder {
+      font-size: 18px;
+      line-height: 21px;
+      color: $gray;
+      font-family: $sfRegular;
+
+      
+    }
+  }
+
+  &__submit {
+    font-size: 16px;
+    line-height: 19px;
+    min-height: 40px;
+    max-height: 40px;
+
+    @include tablet{
+      min-height: 48px;
+      min-height: 48px;
+      font-size: 20px;
+      line-height: 24px;
+    }
+
+    &:hover{
+      background-color: $white;
+      color: $themeBlue;
+    }
+  }
+}
+
+.defaultBtn {
+  @include transition;
+  border-radius: 3px;
+  background-color: $themeBlue;
+  appearance: none;
+  outline: none;
+  border: 1px solid $themeBlue;
+  box-shadow: none;
+  font-weight: 500;
+  font-family: $sfRegular;
+  color: $white;
+  text-align: center;
+
+  &:hover{
+    @include laptop{
+      background-color: $white;
+      border-color: $themeBlue;
+      color: $themeBlue;
+    }
+  }
+}
+
+// end sticky header
+.statusMessage{
+  @include transition;
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  font-family: $sfBold;
+  font-size: 14px;
+  line-height: 16px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  background-color: $white;
+  padding: 5px;
+  border-radius: 7px;
+  z-index: 120;
+  max-width: 320px;
+  margin: 0 auto;
+
+  @include tablet{
+    padding: 20px;
+    font-size: 20px;
+    line-height: 24px;
+  }
+
+  &.success{
+    color: $themeBlue;
+    background-color: $promoted;
+  }
+}

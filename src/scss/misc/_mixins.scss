@@ -1,0 +1,60 @@
+@mixin small {
+  @media screen and (min-width: 320px) {
+    @content;
+  }
+}
+
+@mixin bigMobile{
+  @media screen and (min-width: 410px){
+    @content;
+  }
+}
+
+@mixin preTablet{
+  @media screen and (min-width: 480px){
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media screen and (min-width: 767px) {
+    @content;
+  }
+}
+
+@mixin laptop {
+  @media screen and (min-width: 1100px) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media screen and (min-width: 1600px) {
+    @content;
+  }
+}
+
+@mixin placeholder {
+  &::-webkit-input-placeholder {
+    @content;
+  }
+  &:-moz-placeholder {
+    @content;
+  }
+  &::-moz-placeholder {
+    @content;
+  }
+  &:-ms-input-placeholder {
+    @content;
+  }
+}
+
+@mixin transition {
+  transition: all 0.4s ease-in-out;
+}
+
+@mixin bgIcons {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}

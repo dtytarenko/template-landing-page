@@ -1,0 +1,148 @@
+.aboutUs{
+    font-family: $sfRegular;
+
+    .section__title{
+        font-family: $sfMedium;
+        color: $black;
+        text-transform: uppercase;
+        font-size: 22px;
+        line-height: 30px;
+    }
+
+    &__row{
+        @include tablet{
+            display: flex;
+            justify-content: space-between;
+
+            &:not(:last-of-type){
+                margin-bottom: 20px;
+            }
+        }
+
+        @include laptop{
+            justify-content: flex-start;
+
+            &:not(:last-of-type){
+                margin-bottom: 40px;
+            }
+        }
+    }
+
+    &__img{
+        margin-bottom: 20px;
+        border-radius: 3px;
+        width: 100%;
+        height: auto;
+        display: block;
+        max-height: 200px;
+
+        @include preTablet{
+            max-width: 260px;
+            max-height: 200px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        @include tablet{
+            max-width: 229px;
+            max-height: 217px;
+        }
+
+        @include laptop{
+            margin-left: 0;
+            max-width: 400px;
+            max-height: 246px;
+            margin-right: 70px;
+        }
+
+        &:nth-child(1){
+            @include tablet{
+                margin-left: 0;
+            }
+        }
+
+        &:nth-child(2){
+            @include tablet{
+                margin-right: 0;
+            }
+        }
+    }
+
+    &__textwrap{
+        @include tablet{
+            max-width: 65%;
+        }
+
+        @include laptop{
+            max-width: 700px;
+        }
+
+        .aboutUs__text{
+            &:last-child{
+                &::after{
+                    content: '';
+                    display: block;
+                    bottom: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 5px;
+                    background-color: $themeBlue;
+                    border-radius: 0px 0px 7px 7px;
+                }
+            }
+        }
+
+        .aboutUs__info{
+            color: $gray;
+            font-family: $sfBold;
+            font-size: 18px;
+            line-height: 24px;
+            margin-top: 10px;
+            text-align: center;
+            margin-bottom: 10px;
+
+            @include tablet{
+                text-align: left;
+            }
+        }
+
+        .section__title{
+            @include tablet{
+                margin-bottom: 5px;
+                text-align: left;
+                font-family: $sfRegular;
+                font-size: 30px;
+                line-height: 36px;
+            }
+
+            @include laptop{
+                max-width: 500px;
+                white-space: pre-line;
+            }
+        }
+    }
+
+    &__text{
+        font-size: 14px;
+        line-height: 24px;
+        color: $gray;
+        text-align: center;
+        margin-bottom: 10px;
+
+        @include bigMobile{
+            font-size: 18px;
+            line-height: 28px;
+        }
+
+        @include tablet{
+            text-align: left;
+        }
+
+        @include laptop{
+            max-width: 700px;
+            margin-left: 0;
+            font-size: 24px;
+            line-height: 34px;
+        }
+    }
+}

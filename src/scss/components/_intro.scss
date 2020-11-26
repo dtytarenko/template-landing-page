@@ -1,0 +1,79 @@
+.intro{
+    background-size: 100% 250px;
+    background-position: top center;
+    background-repeat: no-repeat;
+    padding-bottom: 101px;
+    position: relative;
+    @include transition;
+    animation: 18s changeBg linear	infinite;
+
+    @include tablet{
+        background-size: cover;
+        background-position: center center;
+        padding-bottom: 240px;
+    }
+
+    @include laptop{
+        min-height: calc(100vh - 70px);
+        max-height: 850px;
+    }
+
+    .container{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+.intro__title{
+    margin-top: 134px;
+    margin-bottom: 30px;
+    font-family: $sfBold;
+    font-size: 20px;
+    line-height: 24px;
+    color: $white;
+    text-align: center;
+
+    @include tablet{
+        text-align: left;
+        align-self: flex-start;
+        font-size: 46px;
+        line-height: 55px;
+        margin-top: 90px;
+    }
+
+    @include laptop{
+        max-width: 753px;
+    }
+
+    @include desktop{
+        font-size: 46px;
+        line-height: 55px;
+        margin-top: 200px;
+    }
+}
+
+.intro__button{
+    @include transition;
+    margin-bottom: 40px;    
+    background-color: $themeBlue;
+    border-radius: 3px;
+    padding: 8px 18px;
+    font-size: 12px;
+    line-height: 14px;
+    font-family: $sfRegular;
+    color: $white;
+
+    &:hover{
+        background-color: $white;
+        color: $themeBlue;
+        border-color: $themeBlue;
+    }
+
+    @include tablet{
+        align-self: flex-start;
+        font-size: 20px;
+        line-height: 24px;
+        padding: 12px 20px;
+    }
+}

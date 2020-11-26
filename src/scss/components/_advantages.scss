@@ -1,0 +1,93 @@
+.advantages{
+    background-color: $themeBlack;
+    font-family: $sfRegular;
+
+    .section__title{
+        padding-left: 5px;
+        padding-right: 5px;
+    }
+
+    &__list{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        @include tablet{
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: flex-start;
+        }
+
+        &_item{
+            text-align: center;
+
+            @include tablet{
+                width: 32%;
+            }
+
+            &::before{
+                content: '';
+                display: block;
+                width: 60px;
+                height: 60px;
+                margin-right: auto;
+                margin-left: auto;
+                margin-bottom: 15px;
+                @include bgIcons;
+            }
+
+            // advantages icons
+
+            &:nth-child(1)::before{
+                background-image: $advantages_1;
+            }
+
+            &:nth-child(2)::before{
+                background-image: $advantages_2;
+            }
+
+            &:nth-child(3)::before{
+                background-image: $advantages_3;
+            }
+
+            &_img{
+                max-width: 60px;
+                max-height: 60px;
+                margin-bottom: 15px;
+                margin-left: auto;
+                margin-right: auto;
+            }
+                
+            &:not(:last-of-type){
+                margin-bottom: 20px;
+
+                @include tablet{
+                    margin-bottom: 0;
+                }
+            }
+
+            &_title{
+                color: $white;
+                font-size: 20px;
+                line-height: 24px;
+                margin-bottom: 10px;
+
+                @include tablet{
+                    font-size: 26px;
+                    line-height: 31px;
+                }
+            }
+
+            &_descr{
+                color: $semiGray;
+                font-size: 16px;
+                line-height: 19px;
+
+                @include tablet{
+                    font-size: 22px;
+                    line-height: 26px;
+                }
+            }
+        }
+    }
+}

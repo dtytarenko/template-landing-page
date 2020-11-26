@@ -1,0 +1,195 @@
+.solutions {
+    background-image: url('../img/photos/solutions.jpg');
+    background-repeat: no-repeat;
+    background-size: 100% 431px;
+    
+    @include tablet{
+        background-image: url("../img/photos/solutions__tablet.jpg");
+        background-size: cover;
+    }
+
+    &__list {
+        @include tablet{
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+
+        @include laptop{
+            justify-content: space-between;
+        }
+
+        &_item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+            border-radius: 7px;
+            background: rgba(255, 255, 255, 0.8);
+            border: 1px solid #D8DDE6;
+            min-height: 320px;
+            font-family: $sfRegular;
+
+            @include tablet{
+                width: 45%;
+            }
+
+            @include laptop{
+                width: 33%;
+                max-width: 370px;
+                min-height: 270px;
+                @include transition;
+            }
+
+            &::before{
+                content: '';
+                display: block;
+                width: 60px;
+                height: 60px;
+                @include bgIcons;
+                margin-bottom: 20px;
+                margin-right: auto;
+                margin-left: auto;
+            }
+
+            &:nth-of-type(1)::before{
+                background-image: $solution_1;
+            }
+
+            &:nth-of-type(2)::before{
+                background-image: $solution_2;
+            }
+
+            &:nth-of-type(3)::before{
+                background-image: $solution_3;
+            }
+
+            &:not(:last-of-type){
+                margin-bottom: 30px;
+
+                @include laptop{
+                    margin-bottom: 0;
+                }
+            }
+
+            &:nth-last-child(-n+2){
+                @include tablet{
+                    margin-bottom: 0;
+                }
+            }
+
+            &:nth-of-type(2){
+                background-color: $promoted;
+                ;
+                box-shadow: 0px 4px 20px 4px rgba(8, 36, 63, 0.34);
+            }
+
+            &_img{
+                display: block;
+                margin-bottom: 15px;
+                width: 60px;
+                height: 60px;
+            }
+
+            &_text{
+                font-size: 20px;
+                line-height: 24px;
+                text-align: center;
+                margin-bottom: 14px;
+
+                @include tablet{
+                    font-size: 24px;
+                    line-height: 29px;
+                }
+
+                @include laptop{
+                    font-size: 26px;
+                    line-height: 31px;
+                }
+            }
+
+            &.active{
+                @include laptop{
+                    transform: scale(1.3);
+
+                    .solutions__sublist{
+                        opacity: 1;
+                        position: relative;
+                        transform: translate3d(0, 0%, 0);
+                    }
+                }
+            }
+        }
+    }
+
+    &__sublist {
+        &_item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            font-size: 16px;
+            font-family: $sfRegular;
+            line-height: 19px;
+            color: $gray;
+            text-align: center;
+
+            @include tablet{
+                font-size: 20px;
+                line-height: 24px;
+                text-align: left;
+                flex-direction: row;
+                align-items: flex-start;
+            }
+
+            @include desktop{
+                font-size: 22px;
+                line-height: 26px;
+                
+            }
+
+            &:not(:last-of-type){
+                margin-bottom: 10px;
+
+                @include tablet{
+                    margin-bottom: 17px;
+                }
+            }
+
+            &::before{
+                font-family: $sfRegular;
+                font-size: 26px;
+                line-height: 31px;
+                display: block;
+                margin-bottom: 8px;
+
+                @include tablet{
+                    margin-bottom: 0;
+                    margin-right: 5px;
+                }
+
+                @include laptop{
+                    margin-right: 10px;
+                }
+
+                @include desktop{
+                    font-size: 34px;
+                    line-height: 41px;
+                }
+            }
+
+            &.plus{
+                &::before{
+                    content: '+';
+                    color: $green;
+                }
+            }
+
+            &.minus{
+                &::before{
+                    content: '-';
+                    color: $red;
+                }
+            }
+        }
+    }
+}

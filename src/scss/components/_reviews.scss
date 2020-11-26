@@ -1,0 +1,116 @@
+.reviews{
+    background-color: $themeBlack;
+
+    &__list{
+        max-width: 320px;
+    }
+
+    &__item{
+        font-family: $sfRegular;
+        text-align: center;
+        position: relative;
+
+        @include tablet{
+            display: grid;
+            grid-template-columns: 200px 2fr;
+            grid-column-gap: 30px;
+        }
+
+        @include laptop{
+            grid-column-gap: 70px;
+            padding-left: 60px;
+            padding-right: 60px;
+        }
+        
+        &_img{
+            max-width: 82px;
+            width: 100%;
+            height: auto;
+            margin-bottom: 20px;
+            object-fit: cover;
+
+            @include tablet{
+                max-width: 150px;
+                max-height: 170px;
+                grid-column: 1;
+                margin-left: 60px;
+                grid-row: 1/4;
+            }
+        }
+
+        &_name{
+            font-family: $sfBold;
+            font-size: 18px;
+            line-height: 21px;
+            color: $themeBlue;
+            margin-bottom: 5px;
+
+            @include tablet{
+                grid-column: 2;
+                text-align: left;
+                font-size: 22px;
+                line-height: 26px;
+                margin-bottom: 10px;
+            }
+        }
+
+        &_position{
+            font-size: 18px;
+            line-height: 21px;
+            color: $grayText;
+            margin-bottom: 10px;
+
+            @include tablet{
+                text-align: left;
+                grid-column: 2;
+                font-size: 22px;
+                line-height: 26px;
+                margin-bottom: 25px;
+            }
+        }
+
+        &_text{
+            color: $white;
+            font-size: 16px;
+            line-height: 19px;
+            width: calc(100% - 40px);
+            margin: 0 auto;
+
+            @include tablet{
+                width: 100%;
+                text-align: left;
+                font-size: 24px;
+                line-height: 29px;
+                grid-column: 2;
+                grid-row: 3/3;
+                padding-right: 40px;
+            }
+        }
+    }
+
+    &__button{
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        z-index: 80;
+
+        &_img{
+            width: 19px;
+            height: 11px;
+
+            @include tablet{
+                width: 36px;
+                height: 21px;
+            }
+        }
+
+        &_prev{
+            left: 0;
+        }
+
+        &_next{
+            right: 0;
+        }
+    }
+}
+
