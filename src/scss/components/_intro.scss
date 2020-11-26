@@ -5,7 +5,7 @@
     padding-bottom: 101px;
     position: relative;
     @include transition;
-    animation: 18s changeBg linear	infinite;
+    background-image: url('../img/photos/introBg.jpg');
 
     @include tablet{
         background-size: cover;

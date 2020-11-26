@@ -36,10 +36,6 @@
             padding-top: 30px;
         }
 
-        @include laptop{
-            width: 23%;
-        }
-
         &::after{
             content: '';
             bottom: 0;
